@@ -1,0 +1,46 @@
+name: 작업
+description: 문서, 리팩터링, 테스트 등 일반 작업을 등록합니다.
+title: "[Task] "
+body:
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 작업 목적
+      description: 이 작업이 필요한 이유를 설명해 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 작업 내용
+      description: 수행할 작업을 체크리스트로 작성해 주세요.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 완료 조건
+      description: 리뷰어가 완료 여부를 확인할 수 있는 기준을 적어 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: 참고 자료
+      description: 관련 이슈, 문서 또는 링크가 있다면 첨부해 주세요.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 확인 사항
+      options:
+        - label: 동일한 작업이 이미 등록되어 있는지 검색했습니다.
+          required: true
+        - label: 한 이슈에는 하나의 목적만 담았습니다.
+          required: true
