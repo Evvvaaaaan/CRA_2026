@@ -1536,3 +1536,143 @@ img {
     align-items: flex-start;
   }
 }
+
+/* ==========================================================================
+   Motion scroll atmosphere
+   ========================================================================== */
+.scroll-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  contain: strict;
+  background: #14212C;
+  transition: opacity 0.35s ease;
+}
+
+.motion-ready .scroll-backdrop {
+  opacity: 1;
+}
+
+.scroll-backdrop__poster,
+.scroll-backdrop__poster img,
+.scroll-backdrop__video,
+.scroll-backdrop__veil {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-backdrop__poster,
+.scroll-backdrop__video {
+  object-fit: cover;
+  object-position: center;
+  transform: translateZ(0) scale(1.002);
+}
+
+.scroll-backdrop__poster {
+  z-index: 0;
+  margin: 0;
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+.scroll-backdrop__poster img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.scroll-backdrop__video {
+  z-index: 1;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.video-ready .scroll-backdrop__video {
+  opacity: 1;
+}
+
+.video-ready .scroll-backdrop__poster {
+  opacity: 0;
+}
+
+.scroll-backdrop__veil {
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(8, 17, 25, 0.08), rgba(8, 17, 25, 0.22)),
+    radial-gradient(circle at 50% 42%, transparent 35%, rgba(8, 17, 25, 0.2) 100%);
+}
+
+.scroll-backdrop__texture {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0.17;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.32) 0.6px, transparent 0.6px);
+  background-size: 5px 5px;
+  mix-blend-mode: soft-light;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.motion-ready .scroll-progress {
+  opacity: 1;
+}
+
+.scroll-progress__bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #FF7222, #FFB36B);
+  box-shadow: 0 0 16px rgba(255, 114, 34, 0.48);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.motion-ready body > section,
+.motion-ready .final-slide-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.motion-ready .hero-section {
+  background-color: rgba(7, 17, 26, 0.42);
+  background-image: linear-gradient(180deg, rgba(7, 17, 26, 0.16), rgba(7, 17, 26, 0.5));
+}
+
+.motion-ready .about-section,
+.motion-ready .spots-section,
+.motion-ready .howitworks-section,
+.motion-ready .race-section,
+.motion-ready .guide-section {
+  background-color: rgba(247, 246, 242, 0.78);
+  background-image: none;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.motion-ready .cta-trust-section {
+  background-color: rgba(7, 17, 26, 0.58);
+  background-image: linear-gradient(90deg, rgba(7, 17, 26, 0.58), rgba(7, 17, 26, 0.26));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-backdrop,
+  .scroll-progress {
+    display: none;
+  }
+}

@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="scroll-backdrop" aria-hidden="true">
+      <picture class="scroll-backdrop__poster">
+        <source
+          media="(max-width: 768px)"
+          srcset="assets/world/jeju-journey-mobile-poster.jpg"
+        />
+        <img src="assets/world/jeju-journey-poster.jpg" alt="" />
+      </picture>
+      <video
+        class="scroll-backdrop__video"
+        muted
+        playsinline
+        preload="none"
+        data-desktop-src="assets/world/jeju-journey.mp4"
+        data-mobile-src="assets/world/jeju-journey-mobile.mp4"
+      ></video>
+      <div class="scroll-backdrop__veil"></div>
+      <div class="scroll-backdrop__texture"></div>
+    </div>
+
+    <div class="scroll-progress" aria-hidden="true">
+      <span class="scroll-progress__bar"></span>
+    </div>
+
     <!-- ==========================================================================
        1. Hero Section (화면 가득 참 + Header는 여기 상단에만 위치)
        ========================================================================== -->
@@ -1056,5 +1080,6 @@
         }
       });
     </script>
+    <script type="module" src="motion.js"></script>
   </body>
 </html>
