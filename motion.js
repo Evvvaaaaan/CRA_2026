@@ -24,13 +24,15 @@ const sectionTargets = [
 if (!prefersReducedMotion.matches && video) {
   root.classList.add("motion-ready");
 
-  const frameDuration = 1 / 24;
+  const videoFrameRate = Number(video.dataset.frameRate) || 60;
+  const frameDuration = 1 / videoFrameRate;
   let activeObjectUrl = "";
   let duration = 0;
   let targetProgress = 0;
   let smoothedTime = 0;
   let lastFrameTime = 0;
   let animationFrame = 0;
+  let settleTimer = 0;
   let destroyed = false;
 
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
@@ -54,7 +56,7 @@ if (!prefersReducedMotion.matches && video) {
     lastFrameTime = timestamp;
 
     const destination = targetTime();
-    const smoothing = 1 - Math.exp(-elapsed * 18);
+    const smoothing = 1 - Math.exp(-elapsed * 22);
     smoothedTime += (destination - smoothedTime) * smoothing;
 
     if (
@@ -122,6 +124,12 @@ if (!prefersReducedMotion.matches && video) {
   const stopScrubTracking = scroll((progress) => {
     targetProgress = clamp(progress, 0, 1);
     requestFrame();
+
+    clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(() => {
+      smoothedTime = targetTime();
+      requestFrame();
+    }, 120);
   });
 
   const progressAnimation = animate(
@@ -176,6 +184,7 @@ if (!prefersReducedMotion.matches && video) {
     () => {
       destroyed = true;
       cancelAnimationFrame(animationFrame);
+      clearTimeout(settleTimer);
       stopScrubTracking();
       stopProgressTracking();
       parallaxCleanups.forEach((cleanup) => cleanup());
