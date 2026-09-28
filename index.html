@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="borilje-api-base" content="" />
-    <link rel="icon" href="data:," />
     <title>버릴제 (BORILJE) - 제주를 즐긴 다음, 잘 버리는 일까지</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -42,12 +40,12 @@
       <!-- Header / Navigation Bar (Hero 상단에만 위치, 고정되지 않음) -->
       <header class="header">
         <div class="container header-inner">
-          <a href="#" class="logo">버릴 濟</a>
+          <a href="#" class="logo">버릴제</a>
           <nav class="nav-menu">
-            <a href="#how-it-works" class="nav-link">이용 방법</a>
-            <a href="#disposal-guide" class="nav-link">분리배출 안내</a>
             <a href="#clean-spots" class="nav-link">클린 스팟</a>
-            <a href="#disposal-principles" class="nav-link">배출 원칙</a>
+            <a href="#how-it-works" class="nav-link">이용 방법</a>
+            <a href="#clean-race" class="nav-link">개인 랭킹</a>
+            <a href="#disposal-guide" class="nav-link">여행 기록</a>
           </nav>
           <div class="nav-action">
             <a href="#clean-spots" class="btn-pill-primary">내 주변 찾기</a>
@@ -74,13 +72,13 @@
         <!-- 빠른 검색창 -->
         <div class="hero-search-box">
           <div class="search-field">
-            <span class="field-label">검색 지역</span>
+            <span class="field-label">현재 위치</span>
             <span class="field-dot">·</span>
             <input
               type="text"
               id="heroLocationInput"
-              value="한림리"
-              placeholder="예: 한림리"
+              value="제주 함덕"
+              placeholder="위치 입력"
             />
           </div>
           <div class="search-divider"></div>
@@ -90,31 +88,21 @@
             <input
               type="text"
               id="heroItemInput"
-              value="재활용"
-              placeholder="예: 재활용"
+              value="페트병"
+              placeholder="품목 입력"
             />
           </div>
           <button type="button" id="heroSearchBtn" class="btn-search">
             클린 스팟 찾기
           </button>
         </div>
-        <p class="hero-search-coverage">
-          <strong>현재 제공 지역 · 제주시</strong>
-          한림읍 · 애월읍 · 조천읍 · 구좌읍 · 한경면 · 우도면 · 추자면 및 동 지역
-          <span>서귀포시는 데이터 연동 전입니다.</span>
-        </p>
-        <p class="hero-search-example">
-          실제 검색 예시 · 한림리 + 재활용 · 함덕리 + 종량제
-        </p>
       </div>
 
       <!-- 하단 상태 정보 & 워터마크 -->
       <div class="hero-bottom-area">
         <div class="hero-status-row">
-          <span
-            >확인 가능한 클린 스팟 <strong id="heroSpotCount">—</strong>곳</span
-          >
-          <span id="heroUpdatedAt" aria-live="polite">운영 정보 확인 중</span>
+          <span>운영 중 클린 스팟 <strong>328곳</strong></span>
+          <span>최근 운영 정보 · 3분 전 업데이트</span>
         </div>
       </div>
     </section>
@@ -150,8 +138,8 @@
               <h3 class="val-title">가까운 장소</h3>
             </div>
             <p class="val-desc">
-              입력한 지역과 품목에 맞는<br />
-              클린 스팟을 빠르게 확인합니다.
+              현재 위치에서 도보로 갈 수 있는<br />
+              운영 중 클린 스팟을 우선 안내합니다.
             </p>
           </div>
 
@@ -169,11 +157,11 @@
           <div class="value-item">
             <div class="val-header">
               <span class="val-num">03</span>
-              <h3 class="val-title">확인 가능한 정보</h3>
+              <h3 class="val-title">자발적 경쟁</h3>
             </div>
             <p class="val-desc">
-              공공데이터를 기준으로 장소와<br />
-              수거 품목을 함께 안내합니다.
+              금전 보상 없이 개인 기록과<br />
+              월간 랭킹으로 참여를 이어갑니다.
             </p>
           </div>
         </div>
@@ -181,7 +169,86 @@
     </section>
 
     <!-- ==========================================================================
-       3. How It Works Section (화면 가득 참)
+       3. Places to Dispose Section (화면 가득 참)
+       ========================================================================== -->
+    <section id="clean-spots" class="spots-section">
+      <div class="container">
+        <div class="spots-header">
+          <div>
+            <span class="section-tag">PLACES TO DISPOSE</span>
+            <h2 class="section-title">지금 방문하기 좋은 클린 스팟</h2>
+            <p class="section-desc">
+              관광 동선 가까이에서 운영 중인 장소만 골라 보여드립니다.
+            </p>
+          </div>
+          <button type="button" class="btn-pill-dark">전체 장소 보기 ↗</button>
+        </div>
+
+        <div class="spots-cards-grid">
+          <!-- Card 1 -->
+          <article class="spot-card">
+            <img
+              src="images/spot_hamdeok_clean.jpg"
+              alt="함덕 해변 클린 스팟"
+              class="spot-card-img"
+            />
+            <div class="spot-card-overlay">
+              <span class="spot-num-badge">01</span>
+              <div class="spot-card-content">
+                <h3 class="spot-card-title">함덕 해변</h3>
+                <p class="spot-card-status">운영 중 · 도보 3분</p>
+                <p class="spot-card-tags">투명 페트병 · 캔 · 일반</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="spot-card spot-center">
+            <img
+              src="images/spot_dongmun_clean.jpg"
+              alt="동문시장 클린 스팟"
+              class="spot-card-img"
+            />
+            <div class="spot-card-overlay">
+              <span class="spot-num-badge">02</span>
+              <div class="spot-card-content">
+                <h3 class="spot-card-title">동문시장</h3>
+                <p class="spot-card-status">운영 중 · 도보 6분</p>
+                <p class="spot-card-tags">일반 · 재활용 · 음식물</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="spot-card">
+            <img
+              src="images/spot_woljeongri_clean.jpg"
+              alt="월정리 해변 클린 스팟"
+              class="spot-card-img"
+            />
+            <div class="spot-card-overlay">
+              <span class="spot-num-badge">03</span>
+              <div class="spot-card-content">
+                <h3 class="spot-card-title">월정리 해변</h3>
+                <p class="spot-card-status">운영 중 · 도보 8분</p>
+                <p class="spot-card-tags">캔 · 페트병 · 비닐</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="spots-footer-meta">
+          <span
+            >장소별 운영 시간과 수거 품목은 최근 확인 시각을 함께
+            표시합니다.</span
+          >
+          <span>최근 데이터 갱신 · 3분 전</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       4. How It Works Section (화면 가득 참)
        ========================================================================== -->
     <section id="how-it-works" class="howitworks-section">
       <div class="container">
@@ -210,9 +277,9 @@
                   <span class="step-box-num">01</span>
                   <span class="step-box-brand">BORILJE</span>
                 </div>
-                <h3 class="step-box-title">검색 지역 입력</h3>
+                <h3 class="step-box-title">현재 위치 확인</h3>
                 <p class="step-box-desc">
-                  여행 중 머무는 지역이나 찾고 싶은 장소를 입력합니다.
+                  여행 동선에서 가까운 운영 중 장소를 먼저 찾습니다.
                 </p>
                 <a href="#clean-spots" class="step-box-link">자세히 보기 ↗</a>
               </div>
@@ -248,11 +315,11 @@
                   <span class="step-box-num">04</span>
                   <span class="step-box-brand">BORILJE</span>
                 </div>
-                <h3 class="step-box-title">현장 표시 확인</h3>
+                <h3 class="step-box-title">여행 기록 남기기</h3>
                 <p class="step-box-desc">
-                  방문한 장소의 안내판과 수거함 표시를 마지막으로 확인합니다.
+                  완료 기록이 개인 점수와 월간 랭킹에 반영됩니다.
                 </p>
-                <a href="#disposal-principles" class="step-box-link">자세히 보기 ↗</a>
+                <a href="#clean-race" class="step-box-link">자세히 보기 ↗</a>
               </div>
             </div>
           </div>
@@ -268,7 +335,115 @@
     </section>
 
     <!-- ==========================================================================
-       4. Smart Disposal Guide Section (화면 가득 참)
+       5. Personal Clean Race Section (화면 가득 참)
+       ========================================================================== -->
+    <section id="clean-race" class="race-section">
+      <div class="container">
+        <div class="race-header">
+          <div>
+            <span class="section-tag">PERSONAL CLEAN RACE</span>
+            <h2 class="section-title">잘 버린 여행이 나만의 기록이 됩니다</h2>
+            <p class="section-desc">
+              금전 보상 없이 개인 기록과 월간 순위로 참여를 이어갑니다.
+            </p>
+          </div>
+          <div class="toggle-group">
+            <button type="button" id="toggleTrip" class="toggle-btn">
+              이번 여행
+            </button>
+            <button type="button" id="toggleMonth" class="toggle-btn active">
+              이번 달
+            </button>
+          </div>
+        </div>
+
+        <div class="race-grid">
+          <!-- 내 기록 카드 -->
+          <div class="personal-card">
+            <div class="personal-card-top">
+              <div>
+                <h3 class="user-name">제주 여행자 1842</h3>
+                <span class="user-level-tag">CLEAN TRAVELER · LEVEL 3</span>
+              </div>
+              <span class="badge-percentile">상위 12%</span>
+            </div>
+
+            <div class="personal-stats-row">
+              <div class="stat-box">
+                <p class="stat-val primary-val">07</p>
+                <p class="stat-label">올바른 배출</p>
+              </div>
+              <div class="stat-box">
+                <p class="stat-val">05</p>
+                <p class="stat-label">찾은 장소</p>
+              </div>
+              <div class="stat-box">
+                <p class="stat-val">72</p>
+                <p class="stat-label">여행 XP</p>
+              </div>
+            </div>
+
+            <div class="level-progress-box">
+              <div class="progress-header">
+                <span class="title">다음 레벨까지</span>
+                <span class="val">72 / 100 XP</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 72%"></div>
+              </div>
+            </div>
+
+            <p class="personal-recent-log">
+              최근 기록 · 함덕해변 페트병 분리배출 · 오늘 14:32
+            </p>
+          </div>
+
+          <!-- 랭킹 리더보드 -->
+          <div class="leaderboard-card">
+            <div class="leaderboard-header">
+              <h3 class="leaderboard-title">이번 달 개인 랭킹</h3>
+              <span class="leaderboard-sub">제주 전체 참여자 기준</span>
+            </div>
+
+            <ul id="leaderboardList" class="leaderboard-list">
+              <li class="leaderboard-item">
+                <span class="rank-num">01</span>
+                <span class="rank-name">바람따라제주</span>
+                <span class="rank-score">42회</span>
+              </li>
+              <li class="leaderboard-item">
+                <span class="rank-num">02</span>
+                <span class="rank-name">귤빛여행</span>
+                <span class="rank-score">38회</span>
+              </li>
+              <li class="leaderboard-item">
+                <span class="rank-num">03</span>
+                <span class="rank-name">오름산책자</span>
+                <span class="rank-score">31회</span>
+              </li>
+              <li class="leaderboard-item highlight-me">
+                <span class="rank-num">184</span>
+                <span class="rank-name">나 · 제주 여행자 1842</span>
+                <span class="rank-score">7회</span>
+              </li>
+              <li class="leaderboard-item">
+                <span class="rank-num">185</span>
+                <span class="rank-name">느린제주</span>
+                <span class="rank-score">7회</span>
+              </li>
+            </ul>
+
+            <div class="leaderboard-footer-meta">
+              <span>동점일 경우 최근 참여 기록이 빠른 순으로 표시됩니다.</span>
+              <span class="live-indicator">LIVE · 3분 전 갱신</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       6. Smart Disposal Guide Section (화면 가득 참)
        ========================================================================== -->
     <section id="disposal-guide" class="guide-section">
       <div class="container">
@@ -282,7 +457,7 @@
             </p>
           </div>
           <div class="status-pill-subtle">
-            <span class="dot"></span> 기본 배출 방법 안내
+            <span class="dot"></span> 운영 정보 업데이트됨
           </div>
         </div>
 
@@ -347,9 +522,9 @@
 
               <a href="#clean-spots" class="result-location-link">
                 <span id="guideResultLocName" class="loc-name"
-                  >검색 결과에서 실제 수거 장소를 확인하세요</span
+                  >함덕해변 5번 출구 수거함</span
                 >
-                <span id="guideResultLocDist" class="loc-dist">장소 보기 ↗</span>
+                <span id="guideResultLocDist" class="loc-dist">도보 3분 ↗</span>
               </a>
             </div>
 
@@ -385,8 +560,8 @@
               <div class="check-step-item">
                 <span class="step-large-num">03</span>
                 <div class="step-detail">
-                  <h4>수거 품목 확인하기</h4>
-                  <p>장소 상세 페이지에서 해당 품목의 수거 여부를 확인합니다.</p>
+                  <h4>운영 중 수거함 찾기</h4>
+                  <p>지도에서 현재 이용 가능한 전용 수거함을 확인합니다.</p>
                 </div>
               </div>
             </div>
@@ -396,123 +571,6 @@
               <i>↗</i>
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       5. Places to Dispose Section (화면 가득 참)
-       ========================================================================== -->
-    <section id="clean-spots" class="spots-section">
-      <div class="container">
-        <div class="spots-header">
-          <div>
-            <span class="section-tag">PLACES TO DISPOSE</span>
-            <h2 class="section-title">지금 방문하기 좋은 클린 스팟</h2>
-            <p class="section-desc">
-              검색한 위치와 품목에 맞는 장소를 최대 3곳까지 보여드립니다.
-            </p>
-          </div>
-          <p class="spots-search-hint">위치·품목을 바꾸면 결과가 새로 표시됩니다.</p>
-        </div>
-
-        <div id="spotsCards" class="spots-cards-grid" aria-live="polite">
-          <!-- Card 1 -->
-          <article class="spot-card">
-            <div class="spot-card-visual" aria-hidden="true">
-              <span class="spot-card-visual-mark">JEJU</span>
-              <span class="spot-card-photo-note">공공데이터 사진 미제공</span>
-            </div>
-            <div class="spot-card-overlay">
-              <span class="spot-num-badge">01</span>
-              <div class="spot-card-content">
-                <h3 class="spot-card-title">함덕 해변</h3>
-                <p class="spot-card-status">장소 정보 확인 중</p>
-                <p class="spot-card-tags">투명 페트병 · 캔 · 일반</p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="spot-card spot-center">
-            <div class="spot-card-visual" aria-hidden="true">
-              <span class="spot-card-visual-mark">JEJU</span>
-              <span class="spot-card-photo-note">공공데이터 사진 미제공</span>
-            </div>
-            <div class="spot-card-overlay">
-              <span class="spot-num-badge">02</span>
-              <div class="spot-card-content">
-                <h3 class="spot-card-title">동문시장</h3>
-                <p class="spot-card-status">장소 정보 확인 중</p>
-                <p class="spot-card-tags">일반 · 재활용 · 음식물</p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="spot-card">
-            <div class="spot-card-visual" aria-hidden="true">
-              <span class="spot-card-visual-mark">JEJU</span>
-              <span class="spot-card-photo-note">공공데이터 사진 미제공</span>
-            </div>
-            <div class="spot-card-overlay">
-              <span class="spot-num-badge">03</span>
-              <div class="spot-card-content">
-                <h3 class="spot-card-title">월정리 해변</h3>
-                <p class="spot-card-status">장소 정보 확인 중</p>
-                <p class="spot-card-tags">캔 · 페트병 · 비닐</p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="spots-footer-meta">
-          <span
-            >장소별 운영 시간과 수거 품목은 최근 확인 시각을 함께
-            표시합니다.</span
-          >
-          <span id="spotsUpdatedAt">최근 데이터 갱신 확인 중</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       6. Disposal Principles Section (화면 가득 참)
-       ========================================================================== -->
-    <section id="disposal-principles" class="checklist-section">
-      <div class="container">
-        <div class="checklist-section-header">
-          <span class="section-tag">BEFORE YOU DISPOSE</span>
-          <h2 class="section-title">버리기 전, 세 가지만 확인하세요</h2>
-          <p class="section-desc">
-            별도의 가입이나 기록 없이도 바로 실천할 수 있는 기본 배출 원칙입니다.
-          </p>
-        </div>
-
-        <div class="principles-grid">
-          <article class="principle-card">
-            <span class="principle-number">01</span>
-            <h3>내용물을 비우기</h3>
-            <p>용기 안에 남은 내용물을 완전히 비운 다음 배출합니다.</p>
-          </article>
-          <article class="principle-card principle-card-accent">
-            <span class="principle-number">02</span>
-            <h3>깨끗하게 헹구기</h3>
-            <p>재활용품에 묻은 음식물과 이물질을 물로 가볍게 씻어냅니다.</p>
-          </article>
-          <article class="principle-card">
-            <span class="principle-number">03</span>
-            <h3>표시대로 분리하기</h3>
-            <p>상세 페이지의 수거 품목과 현장 수거함 표시를 함께 확인합니다.</p>
-          </article>
-        </div>
-
-        <div class="principles-note">
-          <div>
-            <strong>현장 안내가 가장 우선입니다.</strong>
-            <p>장소별 운영 상황이 다를 수 있으므로 게시된 안내판을 마지막으로 확인해주세요.</p>
-          </div>
-          <a href="#clean-spots" class="btn-pill-dark">가까운 장소 확인하기</a>
         </div>
       </div>
     </section>
@@ -566,8 +624,8 @@
               <li class="trust-item">
                 <span class="dot"></span>
                 <div class="trust-text">
-                  <h5>별도 가입 없음</h5>
-                  <p>회원가입 없이 장소와 배출 방법을 확인할 수 있어요.</p>
+                  <h5>참여 기록</h5>
+                  <p>언제든 삭제하거나 비공개로 바꿀 수 있어요.</p>
                 </div>
               </li>
             </ul>
@@ -580,7 +638,7 @@
         <div class="container">
           <div class="footer-top-grid">
             <div class="footer-brand">
-              <h4 class="brand-logo">버릴 濟</h4>
+              <h4 class="brand-logo">버릴제</h4>
               <p class="brand-slogan">
                 제주를 즐기는 마지막 순간까지,<br />가볍고 올바르게.
               </p>
@@ -590,18 +648,27 @@
             <div class="footer-col">
               <h5>서비스</h5>
               <ul class="footer-links">
-                <li><a href="clean-spots.html">클린 스팟 찾기</a></li>
-                <li><a href="disposal-guide.html">분리배출 가이드</a></li>
-                <li><a href="disposal-check.html">배출 전 체크</a></li>
+                <li><a href="#clean-spots">클린 스팟 찾기</a></li>
+                <li><a href="#disposal-guide">분리배출 가이드</a></li>
+                <li><a href="#clean-race">개인 랭킹</a></li>
               </ul>
             </div>
 
             <div class="footer-col">
               <h5>안내</h5>
               <ul class="footer-links">
-                <li><a href="about.html">서비스 소개</a></li>
-                <li><a href="faq.html">자주 묻는 질문</a></li>
-                <li><a href="report.html">정보 제보</a></li>
+                <li><a href="#">서비스 소개</a></li>
+                <li><a href="#">자주 묻는 질문</a></li>
+                <li><a href="#">정보 제보</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h5>정책</h5>
+              <ul class="footer-links">
+                <li><a href="#">개인정보 처리방침</a></li>
+                <li><a href="#">위치정보 이용약관</a></li>
+                <li><a href="#">서비스 이용약관</a></li>
               </ul>
             </div>
           </div>
@@ -609,14 +676,12 @@
           <hr class="footer-divider" />
 
           <div class="footer-bottom-row">
-            <span>© 2026 버릴濟. 제주 여행자의 올바른 배출을 돕습니다.</span>
-            <span>공공데이터 기반 · 한국어</span>
+            <span>© 2026 버릴제. 제주 여행자의 올바른 배출을 돕습니다.</span>
+            <span>운영 정보 최종 업데이트 2026.09.22 · 한국어</span>
           </div>
         </div>
       </footer>
     </div>
-
-    <script src="app.js" defer></script>
 
     <!-- 인라인 인터랙티브 스크립트 -->
     <script>
@@ -645,8 +710,8 @@
             icon: "PET",
             desc: "내용물을 비우고 헹군 뒤, 라벨을 제거해 투명 페트병 전용 수거함에 넣어주세요.",
             warning: "관광지별 운영 시간과 수거 품목이 다를 수 있어요.",
-            location: "검색 결과에서 실제 수거 장소를 확인하세요",
-            distance: "장소 보기 ↗",
+            location: "함덕해변 5번 출구 수거함",
+            distance: "도보 3분 ↗",
             steps: [
               {
                 num: "01",
@@ -660,8 +725,8 @@
               },
               {
                 num: "03",
-                title: "수거 품목 확인하기",
-                desc: "장소 상세 페이지에서 해당 품목의 수거 여부를 확인합니다.",
+                title: "운영 중 수거함 찾기",
+                desc: "지도에서 현재 이용 가능한 전용 수거함을 확인합니다.",
               },
             ],
             actionBtn: "가까운 투명 페트병 수거함 보기",
@@ -673,8 +738,8 @@
             desc: "음료 캔은 찌그러뜨려 부피를 줄이고, 부탄가스는 통풍이 잘 되는 곳에서 구멍을 뚫어 배출해주세요.",
             warning:
               "휴대용 가스용기는 잔여 가스를 완전히 배출해야 안전합니다.",
-            location: "검색 결과에서 실제 수거 장소를 확인하세요",
-            distance: "장소 보기 ↗",
+            location: "동문시장 야시장 입구 전용 분리배출대",
+            distance: "도보 5분 ↗",
             steps: [
               {
                 num: "01",
@@ -701,8 +766,8 @@
             desc: "병뚜껑을 제거한 후 깨지지 않도록 조심히 배출합니다. 보증금 환급 대상 병은 마트나 편의점 반환이 가능합니다.",
             warning:
               "깨진 유리는 신문지에 감싸 특수규격 종량제 봉투에 배출해주세요.",
-            location: "검색 결과에서 실제 수거 장소를 확인하세요",
-            distance: "장소 보기 ↗",
+            location: "월정리 바다마을 회관 클린 스팟",
+            distance: "도보 4분 ↗",
             steps: [
               {
                 num: "01",
@@ -728,8 +793,8 @@
             icon: "PPR",
             desc: "물기에 젖지 않게 건조한 상태로 모으고, 우유팩이나 테이크아웃 종이컵은 일반 종이류와 구분하여 배출합니다.",
             warning: "음식물이나 기름에 오염된 종이는 일반쓰레기로 분류됩니다.",
-            location: "검색 결과에서 실제 수거 장소를 확인하세요",
-            distance: "장소 보기 ↗",
+            location: "함덕 서우봉 입구 분리수거장",
+            distance: "도보 6분 ↗",
             steps: [
               {
                 num: "01",
@@ -756,8 +821,8 @@
             desc: "오염물이 묻지 않은 깨끗한 비닐류만 모아 투명 또는 반투명 봉투에 담아 배출해주세요.",
             warning:
               "양념이나 기름이 묻어 지워지지 않는 비닐은 일반쓰레기입니다.",
-            location: "검색 결과에서 실제 수거 장소를 확인하세요",
-            distance: "장소 보기 ↗",
+            location: "제주공항 1번 게이트 인근 클린스테이션",
+            distance: "도보 2분 ↗",
             steps: [
               {
                 num: "01",
@@ -783,8 +848,8 @@
             icon: "TRH",
             desc: "재활용이 불가한 복합재질, 오염된 폐기물, 휴지 등은 반드시 제주도 종량제 규격 봉투에 담아 배출합니다.",
             warning: "종량제 봉투 미사용 시 과태료가 부과될 수 있습니다.",
-            location: "검색 결과에서 실제 수거 장소를 확인하세요",
-            distance: "장소 보기 ↗",
+            location: "함덕리 주민센터 클린하우스",
+            distance: "도보 3분 ↗",
             steps: [
               {
                 num: "01",
@@ -925,6 +990,80 @@
         if (guideSearchInput) {
           guideSearchInput.addEventListener("keydown", (e) => {
             if (e.key === "Enter") handleGuideSearch();
+          });
+        }
+
+        const toggleTrip = document.getElementById("toggleTrip");
+        const toggleMonth = document.getElementById("toggleMonth");
+        const leaderboardList = document.getElementById("leaderboardList");
+
+        const tripData = `
+        <li class="leaderboard-item">
+          <span class="rank-num">01</span>
+          <span class="rank-name">하늘담은제주</span>
+          <span class="rank-score">18회</span>
+        </li>
+        <li class="leaderboard-item">
+          <span class="rank-num">02</span>
+          <span class="rank-name">바다와돌담</span>
+          <span class="rank-score">15회</span>
+        </li>
+        <li class="leaderboard-item">
+          <span class="rank-num">03</span>
+          <span class="rank-name">초록숲길러</span>
+          <span class="rank-score">12회</span>
+        </li>
+        <li class="leaderboard-item highlight-me">
+          <span class="rank-num">12</span>
+          <span class="rank-name">나 · 제주 여행자 1842</span>
+          <span class="rank-score">7회</span>
+        </li>
+        <li class="leaderboard-item">
+          <span class="rank-num">13</span>
+          <span class="rank-name">제주올레길벗</span>
+          <span class="rank-score">6회</span>
+        </li>
+      `;
+
+        const monthData = `
+        <li class="leaderboard-item">
+          <span class="rank-num">01</span>
+          <span class="rank-name">바람따라제주</span>
+          <span class="rank-score">42회</span>
+        </li>
+        <li class="leaderboard-item">
+          <span class="rank-num">02</span>
+          <span class="rank-name">귤빛여행</span>
+          <span class="rank-score">38회</span>
+        </li>
+        <li class="leaderboard-item">
+          <span class="rank-num">03</span>
+          <span class="rank-name">오름산책자</span>
+          <span class="rank-score">31회</span>
+        </li>
+        <li class="leaderboard-item highlight-me">
+          <span class="rank-num">184</span>
+          <span class="rank-name">나 · 제주 여행자 1842</span>
+          <span class="rank-score">7회</span>
+        </li>
+        <li class="leaderboard-item">
+          <span class="rank-num">185</span>
+          <span class="rank-name">느린제주</span>
+          <span class="rank-score">7회</span>
+        </li>
+      `;
+
+        if (toggleTrip && toggleMonth) {
+          toggleTrip.addEventListener("click", () => {
+            toggleTrip.classList.add("active");
+            toggleMonth.classList.remove("active");
+            if (leaderboardList) leaderboardList.innerHTML = tripData;
+          });
+
+          toggleMonth.addEventListener("click", () => {
+            toggleMonth.classList.add("active");
+            toggleTrip.classList.remove("active");
+            if (leaderboardList) leaderboardList.innerHTML = monthData;
           });
         }
 
