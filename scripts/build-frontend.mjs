@@ -53,6 +53,7 @@ for (const page of [
 
 for (const file of [
   "app.js",
+  "search-presets.js",
   "spot-detail.js",
   "spot.css",
   "subpage.css",
