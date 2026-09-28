@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="borilje-api-base" content="" />
+    <link rel="icon" href="data:," />
+    <title>정보 제보 | 버릴제</title>
+    <meta name="description" content="클린 스팟의 운영 시간, 위치, 수거 품목 차이를 제보할 내용을 정리하세요." />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="subpage.css" />
+  </head>
+  <body class="subpage-body">
+    <header class="subpage-header">
+      <div class="container subpage-header-inner">
+        <a href="index.html" class="subpage-logo">버릴 濟</a>
+        <nav class="subpage-nav" aria-label="주요 메뉴">
+          <a href="clean-spots.html">클린 스팟</a>
+          <a href="disposal-guide.html">분리배출 가이드</a>
+          <a href="about.html">서비스 소개</a>
+          <a href="faq.html">자주 묻는 질문</a>
+        </nav>
+        <a href="index.html" class="subpage-home">홈으로</a>
+      </div>
+    </header>
+
+    <main class="subpage-main">
+      <section class="subpage-hero">
+        <div class="container">
+          <span class="subpage-eyebrow">REPORT INFORMATION</span>
+          <h1>현장에서 발견한 차이를<br />알려주세요</h1>
+          <p class="subpage-lead">장소 위치, 운영 시간, 수거 품목이 실제와 다를 때 전달할 내용을 정리할 수 있습니다.</p>
+        </div>
+      </section>
+
+      <section class="subpage-section" aria-labelledby="reportTitle">
+        <div class="container report-layout">
+          <div>
+            <div class="subpage-section-head">
+              <span class="section-tag">REPORT CHECKLIST</span>
+              <h2 id="reportTitle">제보 내용 정리하기</h2>
+              <p>정확한 장소명과 확인한 시각을 함께 적으면 현장 정보의 차이를 이해하는 데 도움이 됩니다.</p>
+            </div>
+            <div class="info-card">
+              <h3>함께 적어주세요</h3>
+              <ul>
+                <li>지도나 상세 화면에 표시된 장소명</li>
+                <li>현장에서 직접 확인한 날짜와 시간</li>
+                <li>달라진 운영 시간 또는 수거 품목</li>
+                <li>임시 폐쇄나 위치 이동 여부</li>
+              </ul>
+            </div>
+          </div>
+
+          <form id="reportForm" class="report-form">
+            <div class="report-field">
+              <label for="reportPlace">장소명</label>
+              <input id="reportPlace" name="place" required placeholder="예: 함덕리 클린하우스" />
+            </div>
+            <div class="report-field">
+              <label for="reportType">확인한 정보</label>
+              <select id="reportType" name="type" required>
+                <option value="">선택해주세요</option>
+                <option>위치 또는 주소</option>
+                <option>운영 시간</option>
+                <option>수거 품목</option>
+                <option>운영 중단 또는 폐쇄</option>
+                <option>기타</option>
+              </select>
+            </div>
+            <div class="report-field">
+              <label for="reportObservedAt">현장 확인 시각</label>
+              <input id="reportObservedAt" name="observedAt" type="datetime-local" required />
+            </div>
+            <div class="report-field">
+              <label for="reportDetails">상세 내용</label>
+              <textarea id="reportDetails" name="details" required placeholder="화면의 정보와 현장에서 확인한 차이를 적어주세요."></textarea>
+            </div>
+            <button class="report-submit" type="submit">제보 내용 복사하기</button>
+            <p id="reportStatus" class="report-status" aria-live="polite">입력한 내용은 서버로 전송하거나 저장하지 않습니다.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer compact-footer">
+      <div class="container">
+        <div class="footer-top-grid">
+          <div class="footer-brand"><h2 class="brand-logo">버릴 濟</h2><p class="brand-slogan">제주를 즐기는 마지막 순간까지,<br />가볍고 올바르게.</p><p class="brand-slogan-en">Travel well. Leave lightly.</p></div>
+          <div class="footer-col"><h3>서비스</h3><ul class="footer-links">
+            <li><a href="clean-spots.html">클린 스팟 찾기</a></li><li><a href="disposal-guide.html">분리배출 가이드</a></li><li><a href="disposal-check.html">배출 전 체크</a></li>
+          </ul></div>
+          <div class="footer-col"><h3>안내</h3><ul class="footer-links">
+            <li><a href="about.html">서비스 소개</a></li><li><a href="faq.html">자주 묻는 질문</a></li><li><a href="report.html" aria-current="page">정보 제보</a></li>
+          </ul></div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-bottom-row"><span>© 2026 버릴濟. 제주 여행자의 올바른 배출을 돕습니다.</span><span>공공데이터 기반 · 한국어</span></div>
+      </div>
+    </footer>
+    <script src="report.js" defer></script>
+  </body>
+</html>

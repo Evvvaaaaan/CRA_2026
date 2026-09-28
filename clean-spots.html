@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="borilje-api-base" content="" />
+    <link rel="icon" href="data:," />
+    <title>클린 스팟 찾기 | 버릴제</title>
+    <meta name="description" content="제주 지역과 버릴 품목을 입력해 가까운 클린 스팟을 찾아보세요." />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="subpage.css" />
+  </head>
+  <body class="subpage-body">
+    <header class="subpage-header">
+      <div class="container subpage-header-inner">
+        <a href="index.html" class="subpage-logo">버릴 濟</a>
+        <nav class="subpage-nav" aria-label="주요 메뉴">
+          <a href="clean-spots.html" aria-current="page">클린 스팟</a>
+          <a href="disposal-guide.html">분리배출 가이드</a>
+          <a href="about.html">서비스 소개</a>
+          <a href="faq.html">자주 묻는 질문</a>
+        </nav>
+        <a href="index.html" class="subpage-home">홈으로</a>
+      </div>
+    </header>
+
+    <main class="subpage-main">
+      <section class="subpage-hero">
+        <div class="container">
+          <span class="subpage-eyebrow">CLEAN SPOT FINDER</span>
+          <h1>지금 있는 곳에서<br />가장 알맞은 배출 장소</h1>
+          <p class="subpage-lead">
+            지역과 품목을 함께 입력하면 조건에 맞는 제주 클린하우스와
+            재활용도움센터를 최대 3곳까지 보여드립니다.
+          </p>
+          <div class="subpage-search" role="search">
+            <label>
+              <span>지역</span>
+              <input id="heroLocationInput" type="search" value="한림리" placeholder="예: 한림리" />
+            </label>
+            <label>
+              <span>품목</span>
+              <input id="heroItemInput" type="search" value="재활용" placeholder="예: 재활용" />
+            </label>
+            <button id="heroSearchBtn" type="button">검색하기</button>
+          </div>
+          <p class="subpage-search-coverage">
+            <strong>현재 제공 지역 · 제주시</strong>
+            한림읍 · 애월읍 · 조천읍 · 구좌읍 · 한경면 · 우도면 · 추자면 및 동 지역
+            <span>서귀포시는 데이터 연동 전입니다.</span>
+          </p>
+          <p class="subpage-search-example">
+            실제 검색 예시 · 한림리 + 재활용 · 함덕리 + 종량제
+          </p>
+        </div>
+      </section>
+
+      <section class="spots-section subpage-spots" aria-labelledby="spotsTitle">
+        <div class="container">
+          <div class="spots-header">
+            <div>
+              <span class="section-tag">SEARCH RESULT</span>
+              <h2 id="spotsTitle" class="section-title">검색 결과</h2>
+              <p class="section-desc">장소를 선택하면 운영 시간과 수거 품목을 자세히 확인할 수 있습니다.</p>
+            </div>
+            <p id="spotsUpdatedAt" class="spots-search-hint" aria-live="polite">운영 정보 확인 중</p>
+          </div>
+
+          <div id="spotsCards" class="spots-cards-grid" aria-live="polite">
+            <article class="spot-card">
+              <div class="spot-card-visual" aria-hidden="true"><span class="spot-card-visual-mark">JEJU</span><span class="spot-card-photo-note">공공데이터 사진 미제공</span></div>
+              <div class="spot-card-overlay">
+                <span class="spot-num-badge">01</span>
+                <div class="spot-card-content">
+                  <h3 class="spot-card-title">함덕 해변</h3>
+                  <p class="spot-card-status">장소 정보 확인 중</p>
+                  <p class="spot-card-tags">투명 페트병 · 캔 · 일반</p>
+                </div>
+              </div>
+            </article>
+            <article class="spot-card spot-center">
+              <div class="spot-card-visual" aria-hidden="true"><span class="spot-card-visual-mark">JEJU</span><span class="spot-card-photo-note">공공데이터 사진 미제공</span></div>
+              <div class="spot-card-overlay">
+                <span class="spot-num-badge">02</span>
+                <div class="spot-card-content">
+                  <h3 class="spot-card-title">동문시장</h3>
+                  <p class="spot-card-status">장소 정보 확인 중</p>
+                  <p class="spot-card-tags">일반 · 재활용 · 음식물</p>
+                </div>
+              </div>
+            </article>
+            <article class="spot-card">
+              <div class="spot-card-visual" aria-hidden="true"><span class="spot-card-visual-mark">JEJU</span><span class="spot-card-photo-note">공공데이터 사진 미제공</span></div>
+              <div class="spot-card-overlay">
+                <span class="spot-num-badge">03</span>
+                <div class="spot-card-content">
+                  <h3 class="spot-card-title">월정리 해변</h3>
+                  <p class="spot-card-status">장소 정보 확인 중</p>
+                  <p class="spot-card-tags">캔 · 페트병 · 비닐</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="spots-footer-meta">
+            <span>현장 운영 상황과 표지판을 마지막으로 확인해주세요.</span>
+            <a href="disposal-guide.html">품목별 배출 방법 보기 ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer compact-footer">
+      <div class="container">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+            <h2 class="brand-logo">버릴 濟</h2>
+            <p class="brand-slogan">제주를 즐기는 마지막 순간까지,<br />가볍고 올바르게.</p>
+            <p class="brand-slogan-en">Travel well. Leave lightly.</p>
+          </div>
+          <div class="footer-col">
+            <h3>서비스</h3>
+            <ul class="footer-links">
+              <li><a href="clean-spots.html" aria-current="page">클린 스팟 찾기</a></li>
+              <li><a href="disposal-guide.html">분리배출 가이드</a></li>
+              <li><a href="disposal-check.html">배출 전 체크</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>안내</h3>
+            <ul class="footer-links">
+              <li><a href="about.html">서비스 소개</a></li>
+              <li><a href="faq.html">자주 묻는 질문</a></li>
+              <li><a href="report.html">정보 제보</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-bottom-row">
+          <span>© 2026 버릴濟. 제주 여행자의 올바른 배출을 돕습니다.</span>
+          <span>공공데이터 기반 · 한국어</span>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>

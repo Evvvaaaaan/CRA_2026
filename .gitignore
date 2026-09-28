@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.azure/
+.azurite/
+api/local.settings.json
+api/local-data/
+*.log
+.DS_Store
