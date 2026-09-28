@@ -79,6 +79,7 @@
               id="heroLocationInput"
               value="제주 함덕"
               placeholder="위치 입력"
+              aria-describedby="locationPresetLabel"
             />
           </div>
           <div class="search-divider"></div>
@@ -90,11 +91,98 @@
               id="heroItemInput"
               value="페트병"
               placeholder="품목 입력"
+              aria-describedby="itemPresetLabel"
             />
           </div>
           <button type="button" id="heroSearchBtn" class="btn-search">
             클린 스팟 찾기
           </button>
+        </div>
+
+        <div class="hero-search-presets" aria-label="검색어 빠른 선택">
+          <div class="search-preset-group" data-preset-group>
+            <span id="locationPresetLabel" class="search-preset-label"
+              >추천 위치</span
+            >
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroLocationInput"
+              data-search-value="제주 함덕"
+              aria-pressed="true"
+            >
+              함덕
+            </button>
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroLocationInput"
+              data-search-value="제주 동문시장"
+              aria-pressed="false"
+            >
+              동문시장
+            </button>
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroLocationInput"
+              data-search-value="제주 월정리"
+              aria-pressed="false"
+            >
+              월정리
+            </button>
+          </div>
+
+          <div class="search-preset-group" data-preset-group>
+            <span id="itemPresetLabel" class="search-preset-label"
+              >추천 품목</span
+            >
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroItemInput"
+              data-search-value="페트병"
+              aria-pressed="true"
+            >
+              페트병
+            </button>
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroItemInput"
+              data-search-value="캔"
+              aria-pressed="false"
+            >
+              캔
+            </button>
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroItemInput"
+              data-search-value="유리병"
+              aria-pressed="false"
+            >
+              유리병
+            </button>
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroItemInput"
+              data-search-value="비닐"
+              aria-pressed="false"
+            >
+              비닐
+            </button>
+            <button
+              type="button"
+              class="search-preset-chip"
+              data-search-target="heroItemInput"
+              data-search-value="일반쓰레기"
+              aria-pressed="false"
+            >
+              일반쓰레기
+            </button>
+          </div>
         </div>
       </div>
 
@@ -1081,6 +1169,7 @@
         }
       });
     </script>
+    <script src="search-presets.js" defer></script>
     <script type="module" src="motion.js"></script>
   </body>
 </html>
