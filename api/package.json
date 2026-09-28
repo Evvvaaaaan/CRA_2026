@@ -1,0 +1,28 @@
+{
+  "name": "borilje-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Azure Functions backend for Borilje",
+  "main": "dist/src/functions/*.js",
+  "scripts": {
+    "build": "tsc",
+    "release": "npm run build && node ../scripts/build-api-release.mjs",
+    "storage": "azurite --silent --location .azurite --debug .azurite/debug.log",
+    "start": "func start",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.16.5",
+    "@azure/identity": "^4.13.3",
+    "@azure/storage-blob": "^12.34.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "azure-functions-core-tools": "^4.15.1",
+    "azurite": "^3.37.0",
+    "typescript": "^7.0.2"
+  }
+}

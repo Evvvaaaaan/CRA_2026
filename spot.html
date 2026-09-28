@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="borilje-api-base" content="" />
+    <link rel="icon" href="data:," />
+    <title>클린 스팟 상세 | 버릴제</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="spot.css" />
+  </head>
+  <body class="spot-detail-page">
+    <header class="detail-header">
+      <a href="index.html" class="detail-logo">버릴 濟</a>
+      <a href="index.html#clean-spots" class="detail-back">← 클린 스팟으로 돌아가기</a>
+    </header>
+
+    <main class="detail-main">
+      <section id="detailLoading" class="detail-state" aria-live="polite">
+        <span class="detail-kicker">CLEAN SPOT</span>
+        <h1>장소 정보를 불러오는 중입니다.</h1>
+      </section>
+
+      <section id="detailError" class="detail-state" hidden>
+        <span class="detail-kicker">CLEAN SPOT</span>
+        <h1>장소 정보를 표시할 수 없습니다.</h1>
+        <p id="detailErrorMessage">잠시 후 다시 시도해주세요.</p>
+        <a href="index.html#clean-spots" class="detail-primary-link">다른 장소 찾기</a>
+      </section>
+
+      <article id="detailContent" class="detail-content" hidden>
+        <div class="detail-hero">
+          <div>
+            <span id="detailType" class="detail-kicker"></span>
+            <h1 id="detailName"></h1>
+            <p id="detailAddress" class="detail-address"></p>
+          </div>
+          <div class="detail-marker" aria-hidden="true">
+            <span></span>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <section class="detail-panel detail-panel-wide">
+            <h2>수거 가능한 품목</h2>
+            <div id="detailItems" class="detail-chips"></div>
+          </section>
+
+          <section class="detail-panel">
+            <h2>운영 정보</h2>
+            <p id="detailHours" class="detail-value"></p>
+          </section>
+
+          <section class="detail-panel">
+            <h2>실제 위치</h2>
+            <p id="detailLocation" class="detail-value"></p>
+            <a id="detailMapLink" class="detail-text-link" target="_blank" rel="noopener noreferrer">
+              지도에서 위치 열기 ↗
+            </a>
+          </section>
+
+          <section id="detailServicesPanel" class="detail-panel detail-panel-wide" hidden>
+            <h2>추가 서비스</h2>
+            <div id="detailServices" class="detail-chips"></div>
+          </section>
+        </div>
+
+        <footer class="detail-meta">
+          <span id="detailSource"></span>
+          <span id="detailUpdated"></span>
+        </footer>
+      </article>
+    </main>
+
+    <script src="spot-detail.js"></script>
+  </body>
+</html>

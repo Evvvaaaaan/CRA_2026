@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "ALLOW_SAMPLE_DATA": "true",
+    "SPOTS_SYNC_SCHEDULE": "0 10 18 * * *",
+    "DATA_SOURCE_URL": "",
+    "DATA_GO_KR_SERVICE_KEY": "",
+    "FRONTEND_ORIGIN": "http://localhost:4173"
+  }
+}
